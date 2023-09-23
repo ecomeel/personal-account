@@ -1,0 +1,15 @@
+.input {
+    padding: 14px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #3D3D3D;
+    border-radius: 4px;
+    background-color: transparent;
+    color: #fff;
+
+
+    &:focus {
+        outline: none;
+        border: 1px solid $blue-color;
+    }
+}

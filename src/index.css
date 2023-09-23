@@ -90,4 +90,18 @@ body, html {
   margin-top: 50px;
 }
 
+.input {
+  padding: 14px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #3D3D3D;
+  border-radius: 4px;
+  background-color: transparent;
+  color: #fff;
+}
+.input:focus {
+  outline: none;
+  border: 1px solid #4B72C2;
+}
+
 /*# sourceMappingURL=index.css.map */
