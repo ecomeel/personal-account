@@ -3,5 +3,12 @@
     margin-top: 50px !important;
     background-color: $blue-color;
     border: none;
+    border-radius: 4px;
     color: #FFF;
+
+
+&:hover {
+    background-color: rgba($color: #58619863, $alpha: .5);
+    outline: 1px solid $gray-color;
+}
 }
