@@ -1,5 +1,6 @@
 import React from "react";
 import Input from "../Input/Input";
+import Checkbox from "../Checkbox/Checkbox";
 
 export default function Form() {
     return (
@@ -14,12 +15,7 @@ export default function Form() {
                 type="password"
                 placeholder="Повторите пароль"
             />
-
-            <div className="checkbox">
-                <input id="checkbox1" className="checkbox__input" type="checkbox" name="pass-confirmation" />
-                <label className="checkbox__label" htmlFor="checkbox1">Подтверждаю пароль</label>
-            </div>
-
+            <Checkbox name="pass-confirmation" label="Подтверждаю пароль" />
         </div>
     );
 }

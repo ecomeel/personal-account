@@ -92,6 +92,21 @@ body, html {
 .form > *:not(:first-child) {
   margin-top: 30px;
 }
+
+.input {
+  padding: 14px 20px;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #3D3D3D;
+  border-radius: 4px;
+  background-color: transparent;
+  color: #fff;
+}
+.input:focus {
+  outline: none;
+  border: 1px solid #4B72C2;
+}
+
 .checkbox {
   position: relative;
 }
@@ -104,7 +119,7 @@ body, html {
   padding-left: 40px;
   color: #7f7f7f;
   cursor: pointer;
-  transition: color 1s ease-in;
+  transition: color 0.5s ease-in;
 }
 .checkbox__label::before {
   margin-top: -5px;
@@ -120,7 +135,7 @@ body, html {
   top: 0;
   left: 0;
   z-index: 1;
-  transition: border 1s ease-in;
+  transition: border 0.5s ease-in;
 }
 .checkbox__label::after {
   margin-top: -5px;
@@ -135,7 +150,7 @@ body, html {
   top: 3px;
   left: 3px;
   z-index: 2;
-  transition: opacity 1s ease-in;
+  transition: opacity 0.5s ease-in;
 }
 .checkbox__input:checked + .checkbox__label::before {
   border: 1px solid #4B72C2;
@@ -145,20 +160,6 @@ body, html {
 }
 .checkbox__input:checked + .checkbox__label::after {
   opacity: 1;
-}
-
-.input {
-  padding: 14px 20px;
-  width: 100%;
-  box-sizing: border-box;
-  border: 1px solid #3D3D3D;
-  border-radius: 4px;
-  background-color: transparent;
-  color: #fff;
-}
-.input:focus {
-  outline: none;
-  border: 1px solid #4B72C2;
 }
 
 /*# sourceMappingURL=index.css.map */
