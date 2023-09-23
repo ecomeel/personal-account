@@ -7,6 +7,6 @@ export default function Input({ name, type, placeholder }) {
             name={name}
             type={type}
             placeholder={placeholder}
-             />
+             /> 
     )
 }
