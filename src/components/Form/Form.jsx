@@ -1,6 +1,7 @@
 import React from "react";
 import Input from "../Input/Input";
 import Checkbox from "../Checkbox/Checkbox";
+import Button from "../Button/Button";
 
 export default function Form() {
     return (
@@ -16,6 +17,7 @@ export default function Form() {
                 placeholder="Повторите пароль"
             />
             <Checkbox name="pass-confirmation" label="Подтверждаю пароль" />
+            <Button name='save-data' text='Продолжить' />
         </div>
     );
 }
