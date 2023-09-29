@@ -71,8 +71,8 @@ body, html {
 
 .container {
   margin: 0 auto;
-  padding-top: 150px;
-  padding-bottom: 110px;
+  padding-top: 70px;
+  padding-bottom: 70px;
   width: 800px;
 }
 
@@ -175,6 +175,26 @@ body, html {
 .button:hover {
   background-color: rgba(88, 97, 152, 0.5);
   outline: 1px solid #7f7f7f;
+}
+
+.toLogin {
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+}
+.toLogin__text {
+  color: #7f7f7f;
+}
+.toLogin__button {
+  display: flex;
+  align-items: center;
+  column-gap: 5px;
+  color: #4B72C2;
+  cursor: pointer;
+}
+.toLogin__img {
+  width: 18px;
 }
 
 /*# sourceMappingURL=index.css.map */

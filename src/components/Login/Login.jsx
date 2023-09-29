@@ -4,6 +4,9 @@ import arrowImg from "../../assets/arrow.png";
 
 export default function Login() {
     return(
-        <p>Уже есть аккаунт ? <div>Войти <img src={arrowImg} /></div></p>
+        <div className="toLogin">
+            <p className="toLogin__text">Уже есть аккаунт ?</p>
+            <p className="toLogin__button">Войти <img className="toLogin__img" src={arrowImg}/></p>
+        </div>
     )
 }
