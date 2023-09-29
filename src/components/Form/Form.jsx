@@ -15,51 +15,23 @@ export default function Form() {
         isPassConfirm: false,
     });
 
-    function handleNameInputChange(e) {
-        setUser({
-            ...user,
-            name: e.target.value,
-        })
-    }
-
-    function handleSurnameInputChange(e) {
-        setUser({
-            ...user,
-            surname: e.target.value
-        })
-    }
-
-    function handlePhoneInputChange(e) {
-        setUser({
-            ...user,
-            phone: e.target.value
-        })
-    }
-
-    function handleEmailInputChange(e) {
-        setUser({
-            ...user,
-            email: e.target.value
-        })
-    }
-
-    function handlePasswordInputChange(e) {
-        setUser({
-            ...user,
-            password: e.target.value
-        })
-    }
-
-    function handleCheckPasswordInputChange(e) {
-        setUser({
-            ...user,
-            checkPassword: e.target.value
-        })
-    }
-
     function handleBtnClick() {
-        console.log(user)
+        console.log(user);
+    }
 
+    function handleInputChange(e) {
+        setUser({
+            ...user,
+            [e.target.name]: e.target.value,
+        });
+
+    }
+
+    function handleCheckboxChange(e) {
+        setUser({
+            ...user,
+            isPassConfirm: e.target.checked
+        })
     }
 
     return (
@@ -69,47 +41,54 @@ export default function Form() {
                 type="text"
                 placeholder="Имя"
                 value={user.name}
-                onChange={handleNameInputChange}
+                onChange={handleInputChange}
             />
             <Input
                 name="surname"
                 type="text"
                 placeholder="Фамилия"
                 value={user.surname}
-                onChange={handleSurnameInputChange}
+                onChange={handleInputChange}
             />
             <Input
                 name="phone"
                 type="tel"
                 placeholder="Номер телефона"
                 value={user.phone}
-                onChange={handlePhoneInputChange}
+                onChange={handleInputChange}
             />
             <Input
                 name="email"
                 type="email"
                 placeholder="Email"
                 value={user.email}
-                onChange={handleEmailInputChange}
+                onChange={handleInputChange}
             />
             <Input
                 name="password"
                 type="password"
                 placeholder="Пароль"
                 value={user.password}
-                onChange={handlePasswordInputChange}
+                onChange={handleInputChange}
             />
             <Input
-                name="check-password"
+                name="checkPassword"
                 type="password"
                 placeholder="Повторите пароль"
                 value={user.checkPassword}
-                onChange={handleCheckPasswordInputChange}
+                onChange={handleInputChange}
             />
-
-            {/* Ошибка чтения с паролями */}
-            <Checkbox name="pass-confirmation" label="Подтверждаю пароль" />
-            <Button name="save-data" text="Продолжить" onClick={handleBtnClick}/>
+            <Checkbox
+                name="pass-confirmation"
+                label="Подтверждаю пароль"
+                isConfirm={user.isPassConfirm}
+                onChange={handleCheckboxChange}
+            />
+            <Button
+                name="save-data"
+                text="Продолжить"
+                onClick={handleBtnClick}
+            />
         </div>
     );
 }

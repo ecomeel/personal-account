@@ -7,7 +7,7 @@ export default function Input({ name, type, placeholder, value, onChange }) {
             name={name}
             type={type}
             placeholder={placeholder}
-            value={value ? value : ''}
+            value={value}
             onChange={onChange}
              /> 
     )
