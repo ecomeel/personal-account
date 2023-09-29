@@ -1,7 +1,11 @@
 import React from "react";
 
 export default function Button(props) {
+    function handleBtnClick() {
+        console.log('test')
+    }
+
     return (
-        <button className="button">{props.text}</button>
+        <button onClick={handleBtnClick} className="button">{props.text}</button>
     )
 }
