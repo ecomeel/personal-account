@@ -15,27 +15,55 @@ export default function Form() {
         isPassConfirm: false,
     });
 
-    function handleBtnClick() {
-        console.log(user);
-    }
+    const [isError, setError] = useState(false);
+
+    // function areInputsEmpty() {
+    //     for (let field in user) {
+    //         if (!user[field]) {
+    //             setError(true);
+    //             const input = document.getElementById(field);
+    //             input.classList.add("red-border");
+    //             console.log(input);
+    //             return
+    //         }
+    //     }
+    //     setError(false)
+
+    // }
+
+    // function deleteErrors() {
+    //     const errors = document.querySelectorAll(".red-border");
+    //     errors.forEach((error) => {
+    //         error.classList.remove("red-border");
+    //     });
+    // }
+
+    // function handleBtnClick() {
+    //     areInputsEmpty()
+    //     deleteErrors();
+
+    //     console.log(user)
+
+    //     console.log(isError)
+
+    // }
 
     function handleInputChange(e) {
         setUser({
             ...user,
             [e.target.name]: e.target.value,
         });
-
     }
 
     function handleCheckboxChange(e) {
         setUser({
             ...user,
-            isPassConfirm: e.target.checked
-        })
+            isPassConfirm: e.target.checked,
+        });
     }
 
     return (
-        <div className="form">
+        <form className="form">
             <Input
                 name="name"
                 type="text"
@@ -43,6 +71,7 @@ export default function Form() {
                 value={user.name}
                 onChange={handleInputChange}
             />
+
             <Input
                 name="surname"
                 type="text"
@@ -89,6 +118,6 @@ export default function Form() {
                 text="Продолжить"
                 onClick={handleBtnClick}
             />
-        </div>
+        </form>
     );
 }

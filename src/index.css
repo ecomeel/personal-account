@@ -109,6 +109,10 @@ body, html {
   border: 1px solid #4B72C2;
 }
 
+.red-border {
+  border: 1px solid rgb(143, 56, 56);
+}
+
 .checkbox {
   position: relative;
 }
