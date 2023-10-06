@@ -17,43 +17,32 @@ export default function Form() {
 
     // const [isError, setError] = useState(false);
 
-    // function areInputsEmpty() {
-    //     for (let field in user) {
-    //         if (!user[field]) {
-    //             setError(true);
-    //             const input = document.getElementById(field);
-    //             input.classList.add("red-border");
-    //             console.log(input);
-    //             return
-    //         }
-    //     }
-    //     setError(false)
+    function areInputsFilled() {
+        let noError = true;
+        for(let param in user) {
+            if (param == 'isPassConfirm') continue
 
-    // }
+            const input = document.getElementById(param)
 
-    // function deleteErrors() {
-    //     const errors = document.querySelectorAll(".red-border");
-    //     errors.forEach((error) => {
-    //         error.classList.remove("red-border");
-    //     });
-    // }
-
-    // function handleBtnClick() {
-    //     areInputsEmpty()
-    //     deleteErrors();
-
-    //     console.log(user)
-
-    //     console.log(isError)
-
-    // }
-
-    function handleBtnClick() {
-        for(let field in user) {
-            if (user[field] === '') {
-                console.log(field + ' empty')
+            if (input.value === '') {
+                input.classList.add('red-border')
+                noError = false
+            } else {
+                input.classList.remove('red-border')
             }
         }
+        return noError
+    }
+
+    function handleBtnClick() {
+        if (!areInputsFilled()) {
+            alert('Заполните пустые поля')
+            return 
+        }
+
+        
+
+        console.log('next step')
     }
 
     function handleInputChange(e) {
