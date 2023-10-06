@@ -15,7 +15,7 @@ export default function Form() {
         isPassConfirm: false,
     });
 
-    const [isError, setError] = useState(false);
+    // const [isError, setError] = useState(false);
 
     // function areInputsEmpty() {
     //     for (let field in user) {
@@ -48,6 +48,14 @@ export default function Form() {
 
     // }
 
+    function handleBtnClick() {
+        for(let field in user) {
+            if (user[field] === '') {
+                console.log(field + ' empty')
+            }
+        }
+    }
+
     function handleInputChange(e) {
         setUser({
             ...user,
@@ -63,7 +71,7 @@ export default function Form() {
     }
 
     return (
-        <form className="form">
+        <div className="form">
             <Input
                 name="name"
                 type="text"
@@ -118,6 +126,6 @@ export default function Form() {
                 text="Продолжить"
                 onClick={handleBtnClick}
             />
-        </form>
+        </div>
     );
 }
