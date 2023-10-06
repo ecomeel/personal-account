@@ -2,5 +2,10 @@
     margin: 0 auto;
     padding-top: 70px;
     padding-bottom: 70px;
+    position: relative;
     width: 800px;
+}
+
+.active {
+    display: block !important;
 }
