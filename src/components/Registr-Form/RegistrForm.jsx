@@ -1,10 +1,16 @@
 import React from "react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+
+import { addUserToDatabase } from "../../firebase";
+import { loginUser } from "../../store/slices/userSlice";
 import Input from "../Input/Input";
 import Checkbox from "../Checkbox/Checkbox";
 import Button from "../Button/Button";
 import GreetingNewUser from "../GreetingNewUser/GreetingNewUser";
-import "./form.scss";
+import "./registr-form.scss";
 
 export default function Form() {
     const [user, setUser] = useState({
@@ -16,6 +22,9 @@ export default function Form() {
         checkPassword: "",
         isPassConfirm: false,
     });
+    const auth = getAuth();
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     function areInputsFilled() {
         let noError = true;
@@ -74,22 +83,71 @@ export default function Form() {
         return true;
     }
 
-    function greetingUser() {
-        const greetingPopup = document.getElementById("greetingPopup");
-        greetingPopup.classList.add("active");
+    // function greetingUser() {
+    //     const greetingPopup = document.getElementById("greetingPopup");
+    //     greetingPopup.classList.add("active");
 
-        const closeGreeting = document.getElementById("greetingCloseBtn");
-        closeGreeting.addEventListener("click", () => {
-            greetingPopup.classList.remove("active");
-        });
-    }
+    //     const closeGreeting = document.getElementById("greetingCloseBtn");
+    //     closeGreeting.addEventListener("click", () => {
+    //         greetingPopup.classList.remove("active");
+    //     });
+    // }
+
+    // async function addUserToDatabase(person) {
+    //     try {
+    //         const docRef = await addDoc(collection(db, "users"), {
+    //             id: person.uid,
+    //             name: user.name,
+    //             surname: user.surname,
+    //             email: user.email,
+    //             token: person.accessToken,
+    //             phone: user.phone
+    //         });
+          
+    //         console.log("Document written with ID: ", docRef.id);
+    //       } catch (e) {
+    //         console.error("Error adding document: ", e);
+    //       }
+    // }
 
     function handleBtnClick() {
         if (!validation()) {
             return;
         }
 
-        greetingUser();
+        // navigate("/");
+
+        createUserWithEmailAndPassword(auth, user.email, user.password)
+            .then((userCredential) => {
+                // Signed up
+                const person = userCredential.user;
+                // console.log(userCredential.user)
+                dispatch(loginUser({
+                    id: person.uid,
+                    name: user.name,
+                    surname: user.surname,
+                    email: user.email,
+                    token: person.accessToken,
+                    phone: user.phone
+                }));
+
+                addUserToDatabase({
+                    id: person.uid,
+                    name: user.name,
+                    surname: user.surname,
+                    email: user.email,
+                    phone: user.phone,
+                })
+
+                // ...
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // ..
+            });
+
+        // greetingUser();
     }
 
     function handleInputChange(e) {
