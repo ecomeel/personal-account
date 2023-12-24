@@ -9,7 +9,6 @@ import { loginUser } from "../../store/slices/userSlice";
 import Input from "../Input/Input";
 import Checkbox from "../Checkbox/Checkbox";
 import Button from "../Button/Button";
-import GreetingNewUser from "../GreetingNewUser/GreetingNewUser";
 import "./registr-form.scss";
 
 export default function Form() {
@@ -83,53 +82,26 @@ export default function Form() {
         return true;
     }
 
-    // function greetingUser() {
-    //     const greetingPopup = document.getElementById("greetingPopup");
-    //     greetingPopup.classList.add("active");
-
-    //     const closeGreeting = document.getElementById("greetingCloseBtn");
-    //     closeGreeting.addEventListener("click", () => {
-    //         greetingPopup.classList.remove("active");
-    //     });
-    // }
-
-    // async function addUserToDatabase(person) {
-    //     try {
-    //         const docRef = await addDoc(collection(db, "users"), {
-    //             id: person.uid,
-    //             name: user.name,
-    //             surname: user.surname,
-    //             email: user.email,
-    //             token: person.accessToken,
-    //             phone: user.phone
-    //         });
-          
-    //         console.log("Document written with ID: ", docRef.id);
-    //       } catch (e) {
-    //         console.error("Error adding document: ", e);
-    //       }
-    // }
-
-    function handleBtnClick() {
+    function handleSignUp() {
         if (!validation()) {
             return;
         }
-
-        // navigate("/");
 
         createUserWithEmailAndPassword(auth, user.email, user.password)
             .then((userCredential) => {
                 // Signed up
                 const person = userCredential.user;
-                // console.log(userCredential.user)
-                dispatch(loginUser({
-                    id: person.uid,
-                    name: user.name,
-                    surname: user.surname,
-                    email: user.email,
-                    token: person.accessToken,
-                    phone: user.phone
-                }));
+
+                dispatch(
+                    loginUser({
+                        id: person.uid,
+                        name: user.name,
+                        surname: user.surname,
+                        email: user.email,
+                        token: person.accessToken,
+                        phone: user.phone,
+                    })
+                );
 
                 addUserToDatabase({
                     id: person.uid,
@@ -137,7 +109,9 @@ export default function Form() {
                     surname: user.surname,
                     email: user.email,
                     phone: user.phone,
-                })
+                });
+
+                navigate("/");
 
                 // ...
             })
@@ -218,9 +192,8 @@ export default function Form() {
             <Button
                 name="save-data"
                 text="Продолжить"
-                onClick={handleBtnClick}
+                handleBtnClick={handleSignUp}
             />
-            <GreetingNewUser name={user.name} surname={user.surname} />
         </div>
     );
 }

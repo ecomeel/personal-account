@@ -2,8 +2,8 @@ import React from "react";
 
 import './button.scss'
 
-export default function Button(props) {
+export default function Button({text, handleBtnClick}) {
     return (
-        <button onClick={props.onClick} className="button">{props.text}</button>
+        <button onClick={handleBtnClick} className="button">{text}</button>
     )
 }
