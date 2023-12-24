@@ -2,14 +2,21 @@ import React from "react";
 
 import Header from "../components/Header/Header";
 import RegistrForm from "../components/Registr-Form/RegistrForm";
-import Login from "../components/Login/Login";
+import AnotherLoginType from "../components/AnotherLoginType/AnotherLoginType";
 
 export default function RegistrPage() {
     return (
         <div>
-            <Header />
+            <Header
+                title="Создание аккаунта"
+                description="Введите свои данные, чтобы создать аккаунт в сервисе"
+            />
             <RegistrForm />
-            <Login />
+            <AnotherLoginType
+                title="Уже есть аккаунт ?"
+                description="Войти"
+                path="/login"
+            />
         </div>
     );
 }

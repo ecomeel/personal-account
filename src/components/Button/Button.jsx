@@ -1,9 +1,11 @@
 import React from "react";
 
-import './button.scss'
+import "./button.scss";
 
-export default function Button({text, handleBtnClick}) {
+export default function Button({ text, handleBtnClick }) {
     return (
-        <button onClick={handleBtnClick} className="button">{text}</button>
-    )
+        <button onClick={handleBtnClick} className="button">
+            {text}
+        </button>
+    );
 }

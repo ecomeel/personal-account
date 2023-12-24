@@ -1,11 +1,11 @@
 import React from "react";
 import './header.scss';
 
-export default function Header() {
+export default function Header({title, description}) {
     return (
         <header className="header">
-            <h1 className="header__title">Создание аккаунта</h1>
-            <p className="header__description">Введите свои данные, чтобы создать аккаунт в сервисе</p>
+            <h1 className="header__title">{title}</h1>
+            <p className="header__description">{description}</p>
         </header>
     )
 }

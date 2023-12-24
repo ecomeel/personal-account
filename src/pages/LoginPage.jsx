@@ -2,14 +2,22 @@ import React from "react";
 
 import Header from "../components/Header/Header";
 import LoginForm from "../components/Login-form/LoginForm";
-import Login from "../components/Login/Login";
+import AnotherLoginType from "../components/AnotherLoginType/AnotherLoginType";
 
 export default function LoginPage() {
     return (
         <div>
-            <Header />
+            <Header
+                title="Авторизация"
+                description="Введите свои данные, чтобы войти а аккаунт"
+            />
             <LoginForm />
-            <Login />
+
+            <AnotherLoginType
+                title="Еще нет аккаунта ?"
+                description="Регистрация"
+                path="/registration"
+            />
         </div>
     );
 }
