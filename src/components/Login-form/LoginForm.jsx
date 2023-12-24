@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 import { useDispatch } from "react-redux";
+import { useAsyncValue, useNavigate } from "react-router-dom";
 
 import Input from "../Input/Input";
 import Button from "../Button/Button";
@@ -16,6 +17,7 @@ export default function LoginForm() {
         password: "",
     });
     const dispatch = useDispatch();
+    const navigate = useNavigate()
 
     function areInputsFilled() {
         let noError = true;
@@ -66,8 +68,12 @@ export default function LoginForm() {
                         email: data.email,
                         token: person.accessToken,
                         phone: data.phone
-                    }))
+                    }));
+
+                    navigate('/')
                 });
+
+
 
             })
             .catch((error) => {
