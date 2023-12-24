@@ -1,0 +1,15 @@
+.homepage {
+    padding-bottom: 30px;
+    display: flex;
+    column-gap: 50px;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid gray;
+    &__link {
+        color: white;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

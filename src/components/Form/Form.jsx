@@ -4,6 +4,7 @@ import Input from "../Input/Input";
 import Checkbox from "../Checkbox/Checkbox";
 import Button from "../Button/Button";
 import GreetingNewUser from "../GreetingNewUser/GreetingNewUser";
+import "./form.scss";
 
 export default function Form() {
     const [user, setUser] = useState({
@@ -161,10 +162,7 @@ export default function Form() {
                 text="Продолжить"
                 onClick={handleBtnClick}
             />
-            <GreetingNewUser 
-                name={user.name}
-                surname={user.surname}
-            />
+            <GreetingNewUser name={user.name} surname={user.surname} />
         </div>
     );
 }

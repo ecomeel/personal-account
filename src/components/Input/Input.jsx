@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./input.scss";
 export default function Input({ name, type, placeholder, value, onChange }) {
     return (
         <>
@@ -11,7 +11,7 @@ export default function Input({ name, type, placeholder, value, onChange }) {
                 placeholder={placeholder}
                 value={value}
                 onChange={onChange}
-                 />
+            />
         </>
-    )
+    );
 }
