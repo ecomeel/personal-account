@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { Navigate } from "react-router-dom";
 
 import { useAuth } from "../../hooks/use-auth";
 import { logoutUser } from "../../store/slices/userSlice";
@@ -22,13 +23,6 @@ export default function HomePage() {
             />
         </div>
     ) : (
-        <div className="homepage">
-            <Link className="homepage__link" to="/login">
-                Login
-            </Link>
-            <Link className="homepage__link" to="/registration">
-                Registration
-            </Link>
-        </div>
+        <Navigate to='/registration' />
     );
 }
